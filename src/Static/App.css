@@ -56,6 +56,16 @@
 
 #checked-list{
     min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter{
+    padding: 3px 5px;
+    background-color: #ced4da;
+    font-size: 11px;
+    border-radius: 3%; 
 }
 
 .products-container{
@@ -66,6 +76,22 @@
 
 .products-container > *{
     margin: 8px;
+}
+
+/* READ PRODUCT */
+
+.read-container{
+    display: flex;
+}
+
+.read-container > *{
+    margin: 8px;
+}
+
+.read-card{
+    background-color: #dee2e6;
+    border-radius: 2%;
+    padding: 10px;
 }
 
 /* CSS FOR NOT FOUND PAGE  */

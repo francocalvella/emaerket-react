@@ -36,11 +36,11 @@ export function ReadProduct(){
                 {
                     context =>
                     <>
-                        <div className='main'>
+                        <div className='read-container'>
                             <div>
                                 <img src={guitar} alt="Product" width='300px' />
                             </div>
-                            <div>
+                            <div className='read-card'>
                                 <h1>{product.name}</h1>
                                 <b>$ {product.value}</b>
                                 <p>{product.description}</p>

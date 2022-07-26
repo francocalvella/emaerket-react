@@ -1,9 +1,15 @@
 import firebase from '../Config/firebase';
 
-export async function getProducts(){
-    const querySnapshot = await firebase.firestore()
-    .collection('products').get();
-    return querySnapshot.docs
+export async function getProducts(type){
+    if(type){
+        const querySnapshot = await firebase.firestore()
+        .collection('products').where("type","==", type).get();
+        return querySnapshot.docs
+    }else{
+        const querySnapshot = await firebase.firestore()
+        .collection('products').get();
+        return querySnapshot.docs
+    }
 }
 
 export async function getProductById(id){
