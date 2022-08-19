@@ -3,14 +3,20 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import { add } from "../../Services/ProductServices";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Spinner from 'react-bootstrap/Spinner'
+
 
 
 export default function LoadProduct(){
     const { register, handleSubmit} = useForm();
+    const [image, setImage] = useState(null)
+    const [loading, setloading] = useState(false)
     const redirect = useNavigate();
     const submitHandler = async(data) =>{
         try{
-            await add(data)
+            setloading(true)
+            await add(data, image)
             redirect("/products")
         }catch(e){
             console.error(e)
@@ -39,9 +45,17 @@ export default function LoadProduct(){
                 <option value="a-guitar">Acoustic guitar</option>
             </Form.Select>
         </Form.Group>
-        <Button variant="primary" type="submit">
-            Post
-        </Button>
+        <Form.Group className="mb-3" controlId="formBasicText">
+            <Form.Label>Image</Form.Label>
+            <Form.Control type="file" required onChange={(event)=>setImage(event.target.files[0])}/>
+        </Form.Group>
+        {
+            loading &&
+            <Spinner animation="border" role="status"></Spinner> ||
+            <Button variant="primary" type="submit">
+                Post
+            </Button>
+        }
         </Form>
     </main>
         

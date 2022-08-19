@@ -1,4 +1,3 @@
-import guitar from './../../Static/assets/guitar.jpg'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import {useParams} from 'react-router-dom'
@@ -38,7 +37,7 @@ export function ReadProduct(){
                     <>
                         <div className='read-container'>
                             <div>
-                                <img src={guitar} alt="Product" width='300px' />
+                                <img src={product.img.url} alt="Product" width='300px' />
                             </div>
                             <div className='read-card'>
                                 <h1>{product.name}</h1>
