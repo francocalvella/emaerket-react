@@ -8,6 +8,7 @@ import { SearchBar } from './../../Components/SearchBar';
 export function Products(){
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
+    // const [cart, setCart] = useState([]) TODO
     const [value, setValue] = useState('')
     const [search, setSearch] = useState(null)
     const [filter, setFilter] = useState("")

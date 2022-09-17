@@ -36,7 +36,7 @@ export default function LoadProduct(){
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicText">
             <Form.Label>Description</Form.Label>
-            <Form.Control type="text" placeholder="Enter a brief description" {...register("description", { required: true })}/>
+            <textarea className="form-control" placeholder="Enter a brief description" {...register("description", { required: true })} cols="30" rows="5"></textarea>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicSelect">
             <Form.Select {...register("type", { required: true })}>
@@ -50,10 +50,10 @@ export default function LoadProduct(){
             <Form.Control type="file" required onChange={(event)=>setImage(event.target.files[0])}/>
         </Form.Group>
         {
-            loading &&
-            <Spinner animation="border" role="status"></Spinner> ||
+            (loading &&
+            <Spinner animation="border" role="status"></Spinner> )||
             <Button variant="primary" type="submit">
-                Post
+                Post product
             </Button>
         }
         </Form>

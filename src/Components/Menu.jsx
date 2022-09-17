@@ -46,8 +46,8 @@ export function Menu(){
                             context.isLogged &&
                             <Nav.Link href="#">Logged as {context.userInfo.name}</Nav.Link>
                         }
-                        <Nav.Link href="#home">Buy</Nav.Link>
-                        <Nav.Link href="#features"><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                        <Nav.Link as={Link} to={"/cart"}>Buy</Nav.Link>
+                        <Nav.Link as={Link} to={"/cart"}><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>

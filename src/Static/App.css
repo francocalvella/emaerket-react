@@ -12,6 +12,7 @@
 }
 
 
+
 /* CSS FOR PRODUCTS */
 
 .search-bar-container{
@@ -22,6 +23,14 @@
     align-items: center;
     background-color: #dee2e6;
     border-bottom: solid 1px #6c757d;
+}
+
+.product-img{
+    min-width: 100%;
+    min-height: 300px;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .search-bar{
@@ -70,8 +79,7 @@
 
 .products-container{
    display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
+   flex-wrap: wrap
 }
 
 .products-container > *{
@@ -92,6 +100,7 @@
     background-color: #dee2e6;
     border-radius: 2%;
     padding: 10px;
+    width: 30vw;
 }
 
 /* CSS FOR NOT FOUND PAGE  */

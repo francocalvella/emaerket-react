@@ -4,6 +4,7 @@ import { Main } from "../Pages/Main";
 import Login from './../Pages/Login';
 import NotFound from './../Pages/NotFound';
 import Signup from './../Pages/Signup';
+import {Cart} from './../Pages/Cart';
 import LoadProduct from './../Pages/Products/LoadProduct';
 import { Products } from './../Pages/Products/Products';
 import { ReadProduct } from './../Pages/Products/ReadProduct';
@@ -27,6 +28,7 @@ export function AppRoutes(){
                             <Route path={"/about"} element={<About/>}/>
                             <Route path={"/login"} element={<Login/>}/>
                             <Route path={"/signup"} element={<Signup/>}/>
+                            <Route path={"/cart"} element={<Cart/>}/>
                             <Route path={"/products/load"} element={<LoadProduct/>}/>
                             <Route path={"/products"} element={<Products/>}/>
                             <Route path={"/products/:id"} element={<ReadProduct/>}/>
