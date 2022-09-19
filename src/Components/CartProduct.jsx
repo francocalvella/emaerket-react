@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-//TODO
+import CartContext from "../Context/CartContext"
 
 export default function CartProduct(props){
     const product = props.data
@@ -20,13 +20,16 @@ export default function CartProduct(props){
                     <div className="price">${product.value}</div>
                 </div>
             </div>
-
-            <div className="col right ">
-                <div className="btn btn-danger m-1 remove">Remove</div>
-                <div className="btn btn-danger m-1 remove">Remove All</div>
-                <div className="info quantity m-1">2</div>
-                <div className="info total-price m-1">1000$</div>
-            </div>
+            <CartContext.Consumer>
+                {
+                    context =>
+                <div className="col right ">
+                    <div className="btn btn-danger m-1 remove" onClick={()=>context.removeOne(product.id)}>Remove</div>
+                    <div className="btn btn-danger m-1 remove" onClick={()=>{context.clear();console.log(context.cart)}}>Remove All</div>
+                    <div className="info total-price m-1">${product.value}.00</div>
+                </div>
+                }
+            </CartContext.Consumer>
         </li>
     );
 }

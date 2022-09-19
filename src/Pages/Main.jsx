@@ -1,8 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel'
-import firebase from '../Config/firebase'
 
 export function Main(){
-  console.log(firebase)
     return (
         <Carousel>
           <Carousel.Item>

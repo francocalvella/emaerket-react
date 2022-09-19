@@ -1,6 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom';
+import CartContext from "../Context/CartContext"
 
 export function Product(props){
     const {data} = props;
@@ -23,7 +24,15 @@ export function Product(props){
                     data.description   
                     }
                 </Card.Text>
-                <Button as={Link} to={'/products/'+data.id} variant="primary">Buy now!</Button>
+                <CartContext.Consumer>
+                    {
+                        context =>
+                        <>
+                            <Button onClick={()=>context.addToCart(data.id)} variant="success">Add to Cart!</Button>
+                        </>
+                    }
+                </CartContext.Consumer>
+                <Button style={{marginLeft:"3px"}} as={Link} to={'/products/'+data.id} variant="primary">Edit</Button>
             </Card.Body>
         </Card>
     )

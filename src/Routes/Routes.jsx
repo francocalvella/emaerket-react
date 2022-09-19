@@ -11,12 +11,14 @@ import { ReadProduct } from './../Pages/Products/ReadProduct';
 import { EditProduct } from './../Pages/Products/EditProduct';
 import AuthProvider from './../Context/AuthProvider';
 import AuthContext from './../Context/AuthContext';
+import CartProvider from './../Context/CartProvider';
 import { About } from './../Pages/About';
 
 
 export function AppRoutes(){
     return (
         <Router>
+            <CartProvider>
             <AuthProvider>
                 <AuthContext.Consumer>
                     {
@@ -39,6 +41,7 @@ export function AppRoutes(){
                     }
                 </AuthContext.Consumer>
             </AuthProvider>
+            </CartProvider>
         </Router>
     )
 }

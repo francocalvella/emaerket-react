@@ -4,14 +4,14 @@ import { Product } from './../../Components/Product';
 import {Loading} from '../../Components/Loading'
 import { SearchBar } from './../../Components/SearchBar';
 
-
 export function Products(){
     const [loading, setLoading] = useState(true);
     const [products, setProducts] = useState([]);
-    // const [cart, setCart] = useState([]) TODO
     const [value, setValue] = useState('')
     const [search, setSearch] = useState(null)
     const [filter, setFilter] = useState("")
+
+    //Handles the search bar
     function onChange(event){
         setValue(event.target.value)
         let res = products.filter((item)=>{
@@ -23,6 +23,7 @@ export function Products(){
         }
     }
 
+    //Handles the filter
     function onClick(event){
         setFilter({name: event.target.innerHTML,
                  id: `${event.target.innerHTML[0].toLowerCase()}-guitar`})
@@ -32,11 +33,13 @@ export function Products(){
         setFilter("")
     }
 
+    //------------------------------------------
+
     useEffect(()=>{
         async function request(){
             try {
                 const res = await getProducts(filter.id)
-                setProducts(res)              
+                setProducts(res)
                 setLoading(false)
             } catch (error) {
                 console.error(error)
@@ -60,7 +63,7 @@ export function Products(){
                     <span id="e-guitar" onClick={onClick}>Electric Guitar</span>
                     <span id="a-guitar" onClick={onClick}>Acoustic Guitar</span>
                     <span id="b-guitar" onClick={onClick}>Bass Guitar</span>
-                </section>
+                </section>                
                 <div className="products-container">
                     {(search && search.map(productData=> <Product key={productData.id} 
                     data={{...productData.data(), ...{id: productData.id}}} />))

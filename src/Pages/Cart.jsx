@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import CartProduct from "../Components/CartProduct";
 import CartSummary from "../Components/CartSummary";
 import { Loading } from "../Components/Loading";
 import { getProducts } from "../Services/ProductServices";
 import "../Static/Cart.css"
+import CartContext from "../Context/CartContext"
 
-//TODO
 
 export function Cart(){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
-
+    const [cart, setCart] = useState(true)
 
     useEffect(()=>{
         async function request(){
@@ -27,17 +27,28 @@ export function Cart(){
 
     return (
         <Loading loading={loading}>
-            <main>
-                <header className="header-container">
-                    <h5 className="section-title">Shopping Cart</h5>
-                    <span className="count">3 items in the bag</span>
-                </header>    
-                <section className="container">
-                    <ul className="products">
-                        {products.map(product => {return <CartProduct key={product.id} data={{...product.data(), id: product.id}}/>})}
-                    </ul>
-                </section>
-                <CartSummary/>
-            </main>
+                <CartContext.Consumer>
+                    {
+                        context =>
+                        <main>
+                            <header className="header-container">
+                                <h5 className="section-title">Shopping Cart</h5>
+                                <span className="count">{context.cart.length} items in the bag</span>
+                            </header>    
+                            <section className="container">
+                                <ul className="products">
+                                    {products.map(product => {return <CartProduct key={product.id} 
+                                    data={{...product.data(), id: product.id}}/>})
+                                    .filter(product=>context.cart.includes(product.props.data.id))}
+                                </ul>
+                            </section>
+                            {
+                                (context.cart && <CartSummary cart={products
+                                    .filter(product=>context.cart.includes(product.id))}/>) ||
+                                <CartSummary/>
+                            }
+                        </main>
+                    }
+                </CartContext.Consumer>
         </Loading>
     )}

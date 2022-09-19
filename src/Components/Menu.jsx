@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import AuthContext from "../Context/AuthContext";
+import CartContext from "../Context/CartContext";
 import firebase from './../Config/firebase';
 import { useContext } from 'react';
 
@@ -46,8 +47,15 @@ export function Menu(){
                             context.isLogged &&
                             <Nav.Link href="#">Logged as {context.userInfo.name}</Nav.Link>
                         }
-                        <Nav.Link as={Link} to={"/cart"}>Buy</Nav.Link>
-                        <Nav.Link as={Link} to={"/cart"}><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                        <CartContext.Consumer>
+                            {
+                                context => 
+                                <>
+                                    <Nav.Link as={Link} to={"/cart"}>{context.cart.length} items</Nav.Link>
+                                    <Nav.Link as={Link} to={"/cart"}><FontAwesomeIcon icon={faShoppingCart} /></Nav.Link>
+                                </>
+                            }
+                        </CartContext.Consumer>
                     </Nav>
                 </Container>
             </Navbar>
