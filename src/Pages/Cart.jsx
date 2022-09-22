@@ -10,7 +10,6 @@ import CartContext from "../Context/CartContext"
 export function Cart(){
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true)
-    const [cart, setCart] = useState(true)
 
     useEffect(()=>{
         async function request(){
