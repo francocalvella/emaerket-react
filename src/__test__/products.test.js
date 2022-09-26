@@ -4,6 +4,8 @@ import ProviderMock from '../../__mocks__/ProviderMock';
 import ProductMock from '../../__mocks__/ProductMock';
 import Product from '../../components/Product';
 
+//TODO
+
 describe('<Product/>', () => {
   test('Render del componente Product', () => {
     const product = shallow(
