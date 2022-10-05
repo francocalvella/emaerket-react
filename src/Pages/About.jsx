@@ -24,15 +24,12 @@ export function About(){
                 <h2>
                     Franco Calvella - Autor
                 </h2>
-                
                 <span className="about-span" style={styles.span}>
-                    Me llamo <b>Franco Calvella</b>. Tengo 22 años y soy de Temperley, Buenos Aires. Soy estudiante de comunicación en UBA y un apasionado por la tecnología. He completado el curso de <b>Python</b> en <b>Coderhouse</b> en el que aprendí a hacer proyectos web con <b>Django</b>. Pude aprender por mi cuenta <b>HTML</b>, <b>CSS</b> y <b>JavaScript</b>, decidiendo profundizar este último en <b>UTN</b> con <b>Angular</b>, <b>React</b> y <b>Node.js</b>. Actualmente también me encuentro aprendiendo  <b>Analsis de Datos</b> en <b>Coderhouse</b> además de <b>C#</b> y <b>.NET</b> por mi cuenta. Deseo seguir formándome en estos lenguajes de programación y descubrir hasta donde puedo llegar. 
+                My name is <b>Franco Calvella</b> I am 22 years old and I am from Buenos Aires, Argentina (Currently based in Madrid, Spain). I am a communication science student at UBA and passionate about technology. I have completed the <b>Python</b> course at <b>Coderhouse</b> in which I learned how to make web projects with <b>Django</b>. I was able to learn on my own <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>, deciding to delve into the last mentioned in UTN with <b>Angular</b>, <b>React</b> and <b>Node.js</b>. Later on I learnt <b>.NET</b> and <b>ASP.NET</b> with <b>C#</b> on my own, even so, I decided to enroll myself in the C# Course at Coderhouse to learn it in depth.
+                <br />
+                <br />
+                I have created different projects of my own such as an e-market, a wiki about Star-Wars, a blog about Blockchain and a virtual magazine. I am trying to take my skills in these technologys to the next level by performing in real projects.               
                 </span>
-                <br />
-                <br />
-                <br />
-                <span className="about-span" style={styles.span}>
-                My name is <b>Franco Calvella</b>. I am 22 years old and I am from Temperley, Buenos Aires. I am a communication student at UBA and passionate about technology. I have completed the <b>Python</b> course at <b>Coderhouse</b> in which I learned how to make web projects with <b>Django</b>. I was able to learn on my own <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>, deciding to delve into the last mentioned in <b>UTN</b> with <b>Angular</b>, <b>React</b> and <b>Node.js</b>. I am currently learning <b>Data Analysis</b> at <b>Coderhouse</b> as well as <b>C#</b> and <b>.NET</b> on my own. I want to continue training in these programming languages and discover how far I can go.</span>
                 </div>
         </div>
     )
